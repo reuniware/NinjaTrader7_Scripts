@@ -18,7 +18,7 @@ using System.Collections.Generic;
 namespace NinjaTrader.Strategy
 {
     [Description("Get account positions and strategy position")]
-    public class GLStrategy : Strategy
+    public class IchimokuExpertStrategy : Strategy
     {
         protected override void Initialize()
         {
