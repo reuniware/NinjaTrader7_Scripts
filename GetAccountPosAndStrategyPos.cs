@@ -51,11 +51,11 @@ namespace NinjaTrader.Strategy
 						Print(">> " + dt + " : Instrument Name = " + Account.Positions[i].Instrument.FullName);
 						Print(">> " + dt + " : PnL = " + Account.Positions[i].GetProfitLoss(GetCurrentBid(), PerformanceUnit.Currency));
 						Print(">> " + dt + " : Qty = " + Account.Positions[i].Quantity);
-						double profit = Account.Positions[i].GetProfitLoss(GetCurrentBid(), PerformanceUnit.Currency);
+						/*double profit = Account.Positions[i].GetProfitLoss(GetCurrentBid(), PerformanceUnit.Currency);
 						if (profit>=100)
 						{
 							Account.Positions[i].Close();
-						}
+						}*/
 					}
 					catch(Exception ex)
 					{
