@@ -31,45 +31,42 @@ namespace NinjaTrader.Strategy
         /// <summary>
         /// This method is used to configure the strategy and is called once before any strategy method is called.
         /// </summary>
-        /// <summary>
-        /// This method is used to configure the strategy and is called once before any strategy method is called.
-        /// </summary>
         protected override void Initialize()
         {
             this.BarsRequired = 0;
             CalculateOnBarClose = false;
-			this.EntriesPerDirection = 8;
-			this.BarsRequired = 0;
+	    this.EntriesPerDirection = 8;
+	    this.BarsRequired = 0;
         }
 
-		protected override void OnStartUp()
+	protected override void OnStartUp()
         {
-			this.ClearOutputWindow();
-			this.checkParamFile();
-		}
+	    this.ClearOutputWindow();
+	    this.checkParamFile();
+	}
 		
-		double ask = 0;
-		double bid = 0;
-		bool done = false;
+	double ask = 0;
+	double bid = 0;
+	bool done = false;
         /// <summary>
         /// Called on each bar update event (incoming tick)
         /// </summary>
         protected override void OnBarUpdate()
         {
-			ask = this.GetCurrentAsk();
+	    ask = this.GetCurrentAsk();
             bid = this.GetCurrentBid();
 			
-			if (this.Historical == true) return;
+	    if (this.Historical == true) return;
 			
-			if (done == false){
-				IOrder order = this.EnterLongStop(1, ask+5, "MonSignalName");
-				this.SetProfitTarget("MonSignalName", CalculationMode.Price, bid+10);
-				this.SetStopLoss("MonSignalName", CalculationMode.Price, ask-20, false);
-				Print("stop price = " + (ask+5));
-				Print("tp price = " + (bid+10));
-				Print("sl price = " + (ask-20));
-				done = true;
-			}
+	    if (done == false){
+	        IOrder order = this.EnterLongStop(1, ask+5, "MonSignalName");
+		this.SetProfitTarget("MonSignalName", CalculationMode.Price, bid+10);
+		this.SetStopLoss("MonSignalName", CalculationMode.Price, ask-20, false);
+		Print("stop price = " + (ask+5));
+		Print("tp price = " + (bid+10));
+		Print("sl price = " + (ask-20));
+		done = true;
+	    }
         }
 		
         #region Properties
