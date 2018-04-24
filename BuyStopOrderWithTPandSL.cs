@@ -31,12 +31,15 @@ namespace NinjaTrader.Strategy
         /// <summary>
         /// This method is used to configure the strategy and is called once before any strategy method is called.
         /// </summary>
+        /// <summary>
+        /// This method is used to configure the strategy and is called once before any strategy method is called.
+        /// </summary>
         protected override void Initialize()
         {
             this.BarsRequired = 0;
             CalculateOnBarClose = false;
-            this.EntriesPerDirection = 8;
-			      this.BarsRequired = 0;
+			this.EntriesPerDirection = 8;
+			this.BarsRequired = 0;
         }
 
 		protected override void OnStartUp()
